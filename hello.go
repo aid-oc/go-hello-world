@@ -4,8 +4,12 @@ import (
 	"fmt"
 
 	"rsc.io/quote"
+
+	"example.com/greetings"
 )
 
 func main() {
-	fmt.Println(quote.Go())
+	greeting := greetings.Hello("aid")
+	quote := quote.Go()
+	fmt.Printf("%v, here's a quote: %v", greeting, quote)
 }
