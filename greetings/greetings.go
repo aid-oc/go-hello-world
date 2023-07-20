@@ -3,6 +3,7 @@ package greetings
 import (
 	"errors"
 	"fmt"
+	"math/rand"
 )
 
 /* func declared starting with a capital can be called by a func
@@ -18,6 +19,16 @@ func Hello(name string) (string, error) {
 		var message string
 		message = fmt.Sprintf("Hi, %v. Welcome!", name)
 	*/
-	message := fmt.Sprintf("Hi, %v. Welcome!", name)
+	message := fmt.Sprintf(randomFormat(), name)
 	return message, nil
+}
+
+func randomFormat() string {
+	formats := []string{
+		"Hi, %v. Welcome!",
+		"Great to see you, %v!",
+		"Hail, %v! Well met!",
+	}
+
+	return formats[rand.Intn(len(formats))]
 }
